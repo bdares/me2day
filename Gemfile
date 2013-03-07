@@ -17,6 +17,10 @@ group :test do
   gem 'simplecov', :require => false
   gem 'timecop'
   gem 'webmock'
+  gem 'guard-rspec'
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
+  gem 'rb-fchange', :require => false
 end
 
 gemspec
