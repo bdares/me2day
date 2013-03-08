@@ -118,5 +118,14 @@ describe Me2day::Client do
       expect{subject.send(:request, :get, "/path")}.to raise_error Me2day::Error::DecodeError
     end
   end
+  
+  describe "#auth_url" do
+    context "application_key is nil" do
+      it "raises a ClientError" do
+        client = Me2day::Client.new
+        expect(client.auth_url).to raise_error Me2day::Error::ClientError
+      end
+    end
+  end
 
 end

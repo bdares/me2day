@@ -58,7 +58,7 @@ module Me2day
     
     # Return an authorization url
     def auth_url
-      raise Me2day::Error::ClientError.new("application_key must be defined") unless options[:application_key]
+      raise Me2day::Error::ClientError.new unless options[:application_key]
       connection.get("/api/get_auth_url.json") do |request|
         request.headers[:me2_application_key] = options[:application_key]
       end.env[:body][:url]
