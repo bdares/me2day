@@ -22,7 +22,7 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
-
+ 
 def a_delete(path)
   a_request(:delete, Me2day::Default::ENDPOINT + path)
 end

@@ -11,7 +11,7 @@ describe Me2day::Base do
 
     after do
       Me2day.identity_map = false
-    end
+    end 
 
     describe ".identity_map" do
       it "returns an instance of the identity map" do

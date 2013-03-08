@@ -1,9 +1,10 @@
 require 'faraday'
 require 'multi_json'
-require 'me2day/api/undocumented'
+require 'me2day/api/etc'
+require 'me2day/api/metoos'
 require 'me2day/api/people'
 require 'me2day/api/posts'
-require 'me2day/api/etc'
+require 'me2day/api/undocumented'
 require 'me2day/configurable'
 require 'me2day/error/client_error'
 require 'me2day/error/decode_error'
@@ -20,6 +21,7 @@ module Me2day
     include Me2day::API::Posts
     include Me2day::API::Undocumented
     include Me2day::API::People
+    include Me2day::API::Metoos
     include Me2day::API::Etc
     include Me2day::Configurable
 
@@ -83,7 +85,7 @@ module Me2day
     end
 
     def auth
-      return unless options[:user_id] && options[:user_key]
+      return {} unless options[:user_id] && options[:user_key]
       # raise Me2day::Error::ConfigurationError.new("user_id and user_key must be defined") unless options[:user_id] && options[:user_key]
       {:uid => options[:user_id], :ukey => ukey(options[:user_key])}
     end

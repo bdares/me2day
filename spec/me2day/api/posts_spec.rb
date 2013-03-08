@@ -25,22 +25,30 @@ describe Me2day::API::Posts do
     
     context "without a user defined" do
       before do
-        stub_get("/api/get_posts.json").to_return(:body => fixture("post.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+        stub_get("/api/get_posts.json").with(:query => {:post_id => 'pyw8u0a-_1t5g'}).to_return(:body => fixture("post.json"), :headers => {:content_type => "application/json; charset=utf-8"})
       end
       it "requests the correct resource" do
-        post = @client.get_posts(:post_id => 'pyw8u0a-_1t5g')
-        expect(a_get("/api/get_posts.json")).to have_been_made
+      post = @client.get_posts(nil, :post_id => 'pyw8u0a-_1t5g')
+        expect(a_get("/api/get_posts.json").with(:query => {:post_id => 'pyw8u0a-_1t5g'})).to have_been_made
       end
       it "returns a single post" do
-        post = @client.get_posts(:post_id => 'pyw8u0a-_1t5g')
+        post = @client.get_posts(nil, :post_id => 'pyw8u0a-_1t5g')
         expect(post).to be_a Me2day::Post
       end
+    end
+  end
+  
+  describe "#get_post" do
+    it "returns a single post" do
+      stub_get("/api/get_posts.json").with(:query => {:post_id => 'pyw8u0a-_1t5g'}).to_return(:body => fixture("post.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      post = @client.get_post('pyw8u0a-_1t5g')
+      expect(post).to be_a Me2day::Post
     end
   end
 
   describe "#create_post" do
     before do
-      stub_post("/api/create_post.json").to_return(:body => fixture("post.json"), :headers => {:content_type => "application/json; charset=utf-8"})
+      stub_post("/api/create_post.json").to_return(:body => fixture("created_post.json"), :headers => {:content_type => "application/json; charset=utf-8"})
     end
     it "requests the correct resource" do
       @client.create_post('test')

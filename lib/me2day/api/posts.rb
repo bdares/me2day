@@ -17,6 +17,11 @@ module Me2day
           objects_from_response(Me2day::Post, :get, "/api/get_posts.json", options).first
         end
       end
+      
+      # utility method for finding a single post by id
+      def get_post(post_id)
+        get_posts(nil, :post_id => post_id)
+      end
 
       # 미투데이 글을 삭제합니다.
       # @see http://api.me2day.net/reference/manual.nhn?api=delete_post
@@ -26,10 +31,9 @@ module Me2day
 
       # 글 관련 API는 미투데이에 글을 쓰고, 읽고, 삭제하는 기능을 제공합니다.
       # @see http://api.me2day.net/reference/manual.nhn?api=create_post
-      def create_post(status, options={})
-        object_from_response(Me2day::Post, :post, "/1.1/statuses/update.json", options.merge(:status => status))
+      def create_post(body, options={})
+        object_from_response(Me2day::Post, :post, "/api/create_post.json", options.merge('post[body]' => body))
       end
-
     end
   end
 end
