@@ -16,12 +16,15 @@ Authorization
 
  * Redirect the user to the authorization URL:
 
+```ruby
    redirect_to Me2day.auth_url
+```
       
 Basic Usage
 =====
 
  * Configure Me2day with your credentials:
+
 ```ruby
     Me2day.configure do |config|
       config.application_key = 'my_application_key'
@@ -29,11 +32,15 @@ Basic Usage
       config.user_key = 'user_key'
     end
 ```    
+
  * Instantiate a client:
 
+```ruby
     client = Me2day::Client.new
+```
     
  * Call the API:
+
 ```ruby
     client.noop
     client.get_posts("codian", :from => '20120101').each do |post|
