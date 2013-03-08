@@ -17,7 +17,13 @@ Authorization
  * Redirect the user to the authorization URL:
 
 ```ruby
-   redirect_to Me2day.auth_url
+    redirect_to Me2day.auth_url
+```
+
+or
+
+```ruby
+    <%= link_to 'Log in', Me2day.auth_url %>
 ```
       
 Basic Usage
