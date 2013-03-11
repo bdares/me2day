@@ -10,7 +10,7 @@ module Me2day
     attr_reader :openid, :nickname, :description, :email, :cellphone, 
       :messenger, :location, :celebrity, :me2dayHome, :rssDaily, 
       :invitedBy, :pinMeCount, :updated, :totalPosts, :registered, :postIcons, :autoAccept, 
-      :sex, :naverId, :face, :friendsCount
+      :sex, :naverId, :face, :friendsCount, :relationship
       
     # Return the person's birthday
     # @return [Date]
