@@ -18,6 +18,10 @@ module Me2day
         search(term, options.merge(begin_time:begin_time.strftime('%Y.%m.%dT%H:%M'), end_time:end_time.strftime('%Y.%m.%dT%H:%M'), tz:'Asia/Seoul',time:'custom'))
       end
       
+      def cancel_metoo(post_id)
+        delete("/api/cancel_metoo.json", {:post_id=>post_id})[:body]
+      end
+      
     end
   end
 end
