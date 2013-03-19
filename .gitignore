@@ -1,6 +1,7 @@
 *.gem
 *.rbc
 *~
+.redcar
 .bundle
 .rvmrc
 .yardoc
@@ -9,3 +10,4 @@ doc/*
 Gemfile.lock
 log/*
 pkg/*
+tmp/*

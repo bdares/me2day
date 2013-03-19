@@ -1,5 +1,6 @@
 require 'faraday'
 require 'multi_json'
+require 'me2day/api/comments'
 require 'me2day/api/etc'
 require 'me2day/api/metoos'
 require 'me2day/api/people'
@@ -18,6 +19,7 @@ module Me2day
   # @note All methods have been separated into modules and follow the same grouping used in {http://dev.me2day.com/doc the Me2day API Documentation}.
   # @see http://dev.me2day.com/pages/every_developer
   class Client
+    include Me2day::API::Comments
     include Me2day::API::Posts
     include Me2day::API::Undocumented
     include Me2day::API::People

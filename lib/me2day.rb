@@ -1,3 +1,8 @@
+require 'me2day/comment'
+require 'me2day/comment_by_me'
+require 'me2day/comment_list'
+require 'me2day/comment_log'
+require 'me2day/comment_to_me'
 require 'me2day/client'
 require 'me2day/configurable'
 require 'me2day/configuration'
