@@ -11,7 +11,7 @@ module Me2day
     # @return [Me2day::Comment]
     def comment
       return unless @attrs[:comment]
-      @post ||= Me2day::Comment.fetch_or_new(@attrs[:comment])
+      @comment ||= Me2day::Comment.fetch_or_new(@attrs[:comment])
     end
   end
 end
