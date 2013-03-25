@@ -10,7 +10,7 @@ module Me2day
       # 미투 관련 API는 미투데이 글에 미투하기 및 미투한 사용자 목록을 조회하는 기능을 제공합니다.
       # @see http://api.me2day.net/reference/manual.nhn?api=get_metoos
       def get_metoos(post_id, options={})
-        objects_from_response(Me2day::MetooResult, :get, "/api/get_metoos.json", options.merge(:post_id => post_id))
+        object_from_response(Me2day::MetooResult, :get, "/api/get_metoos.json", options.merge(:post_id => post_id))
       end
 
       # 지정한 글에 미투합니다.
