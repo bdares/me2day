@@ -17,6 +17,8 @@ describe Me2day::API::Metoos do
     it "returns a metoo result" do
       metoo_result = @client.get_metoos('pyw8u0a-_1t5g')
       expect(metoo_result).to be_a Me2day::MetooResult
+      expect(metoo_result.metoos).to be_an Array
+      expect(metoo_result.metoos.first).to be_a Me2day::Metoo
     end
   end
   

@@ -11,7 +11,7 @@ module Me2day
     # @return [Me2day::Metoo]
     def metoos
       return unless @attrs[:metoos]
-      @metoos ||= Me2day::API::Utils.objects_from_array(Me2day::Metoo, @attrs[:metoos])
+      @metoos ||= @attrs[:metoos].map{|x| Me2day::Metoo.new(x)}
     end
   end
 end
